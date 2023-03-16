@@ -1,0 +1,31 @@
+{
+    "kuaidong service class": {
+        "prefix": "ksc",
+        "body": [
+            "export default class ${TM_FILENAME_BASE} {",
+            "\t${0}",
+            "}"
+        ],
+        "description": "kuaidong service class"
+    },
+    "kuaidong service  function": {
+        "scope": "typescript",
+        "prefix": "ksfasync",
+        "body": [
+            "public static  $1($2): $3 {",
+            "\t$0",
+            "}"
+        ],
+        "description": "kuaidong service  function"
+    },
+    "kuaidong service async function": {
+        "scope": "typescript",
+        "prefix": "ksfasync",
+        "body": [
+            "public static async $1($2): $3 {",
+            "\t$0",
+            "}"
+        ],
+        "description": "kuaidong service async function"
+    }
+}

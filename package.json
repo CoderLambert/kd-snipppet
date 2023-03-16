@@ -17,6 +17,10 @@
       },
       {
         "language": "typescript",
+        "path": "./snippets/kd-api.json"
+      },
+      {
+        "language": "typescript",
         "path": "./snippets/utils.json"
       },
       {

@@ -1,0 +1,17 @@
+{
+    "snake": {
+        "prefix": "snake",
+        "body": "${1/(^[A-Z][a-z]*|[a-z])([A-Z])?/${1:/downcase}${2:+_}${2:/downcase}/g}"
+    },
+    "kebab-case": {
+        "prefix": "kebab-case",
+        "body": "${1/(^[A-Z][a-z]*|[a-z])([A-Z])?/${1:/downcase}${2:+-}${2:/downcase}/g}   ---- ${2}"
+    },
+    "query-params": {
+        "prefix": "krqp",
+        "body": [
+            "${1}",
+            "${1/([\\w]+)(:\\s?\\w+)(,{0,1})/${1}${3:+,}/g}"
+        ]
+    }
+}
