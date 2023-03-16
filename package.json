@@ -18,6 +18,18 @@
       {
         "language": "typescript",
         "path": "./snippets/utils.json"
+      },
+      {
+        "language": "typescript",
+        "path": "./snippets/kd-import.json"
+      },
+      {
+        "language": "vue",
+        "path": "./snippets/kd-import.json"
+      },
+      {
+        "language": "typescript",
+        "path": "./snippets/kd-service.json"
       }
     ]
   }
