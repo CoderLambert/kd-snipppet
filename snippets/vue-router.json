@@ -1,13 +1,13 @@
 {
     "导入 vue-router": {
-        "prefix": "kimr",
+        "prefix": "kir",
         "body": [
             "import VueRouter, { RouteConfig } from 'vue-router'"
         ],
         "description": "导入 vue-router"
     },
     "导入路由页面组件": {
-        "prefix": "kimrc",
+        "prefix": "kirc",
         "body": [
             "const $1 = () => import('../views/$2/$3.vue')"
         ],
