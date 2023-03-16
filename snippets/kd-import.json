@@ -1,0 +1,9 @@
+{
+    "导入公共模块": {
+        "prefix": "ki",
+        "body": [
+            "import { $0 }  from \"${1|kuaidong-model,kuaidong-ui,kuaidong-service,kuaidong-api,kuaidong-lib,kuaidong-component,kuaidong-enum,kuaidong-activity|}\""
+        ],
+        "description": "导入公共模块"
+    }
+}
