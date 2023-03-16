@@ -1,19 +1,32 @@
 {
+    "导入 vue-router": {
+        "prefix": "kimr",
+        "body": [
+            "import VueRouter, { RouteConfig } from 'vue-router'"
+        ],
+        "description": "导入 vue-router"
+    },
+    "导入路由页面组件": {
+        "prefix": "kimrc",
+        "body": [
+            "const $1 = () => import('../views/$2/$3.vue')"
+        ],
+        "description": "导入路由页面组件"
+    },
     "页面路由配置": {
         "prefix": "krc",
         "body": [
             "export const ${1}Router: RouteConfig = {",
-            "path: '/${1/(.*)/${1:/upcase}/ig}',",
-            "path: '/${1/(.*)/${1:/capitalize}/ig}',",
-            "path: '/${1/(.*)/${1:/camelcase}/ig}',",
-            "path: '/${1/(.*)/${1:/pascalcase}/ig}',",
-            "name: '${1/([\\w])-/$1_/ig}',",
-            "component: ${CLIPBOARD},",
+            "path: '/${1/(^[A-Z][a-z]*|[a-z])([A-Z])?/${1:/downcase}${2:+-}${2:/downcase}/g}',",
+            "name: '${1/(^[A-Z][a-z]*|[a-z])([A-Z])?/${1:/downcase}${2:+_}${2:/downcase}/g}',",
+            "component: ${1},",
             "meta: {",
             "title: '${3}',",
-            "${4:ignoreLogin: } ${5|true, false|},",
-            "[GlobalConfigRouteMetaEnum.${6|all,Drills,Homework,CompetitionType,DrillCategories|}]: ${7|true,false|},",
-            "},"
+            "$4",
+            "$5",
+            "},",
+            "$6",
+            "}"
         ],
         "description": "页面路由配置"
     },
@@ -53,7 +66,7 @@
         "prefix": "krnf",
         "body": [
             "export function navigateTo${1}(router: VueRouter, ${2}) {",
-            "  router.push({ name: ${1}Route.name, query: { ${2}} })",
+            "  router.push({ name: ${1}Route.name, query: { ${2/([\\w]+)(:\\s?\\w+)(,{0,1})/${1}${3:+,}/g}})",
             "}"
         ],
         "description": "跳转到路由地址"
@@ -62,17 +75,9 @@
         "prefix": "krrf",
         "body": [
             "export function replaceTo${1}(router: VueRouter, ${2}) {",
-            "  router.replace({ name: ${1}Route.name, query: { ${2}} })",
+            "  router.replace({ name: ${1}Route.name, query: { ${2/([\\w]+)(:\\s?\\w+)(,{0,1})/${1}${3:+,}/g}}})",
             "}"
         ],
         "description": "替换当前路由地址"
-    },
-    "snake": {
-        "prefix": "snake",
-        "body": "${1/(^[A-Z][a-z]*|[a-z])([A-Z])?/${1:/downcase}${2:+_}${2:/downcase}/g}"
-    },
-    "kebab-base": {
-        "prefix": "kebab",
-        "body": "${1/(^[A-Z][a-z]*|[a-z])([A-Z])?/${1:/downcase}${2:+-}${2:/downcase}/g}   ---- ${2}"
     }
 }
