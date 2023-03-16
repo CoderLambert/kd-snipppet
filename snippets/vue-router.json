@@ -1,0 +1,78 @@
+{
+    "页面路由配置": {
+        "prefix": "krc",
+        "body": [
+            "export const ${1}Router: RouteConfig = {",
+            "path: '/${1/(.*)/${1:/upcase}/ig}',",
+            "path: '/${1/(.*)/${1:/capitalize}/ig}',",
+            "path: '/${1/(.*)/${1:/camelcase}/ig}',",
+            "path: '/${1/(.*)/${1:/pascalcase}/ig}',",
+            "name: '${1/([\\w])-/$1_/ig}',",
+            "component: ${CLIPBOARD},",
+            "meta: {",
+            "title: '${3}',",
+            "${4:ignoreLogin: } ${5|true, false|},",
+            "[GlobalConfigRouteMetaEnum.${6|all,Drills,Homework,CompetitionType,DrillCategories|}]: ${7|true,false|},",
+            "},"
+        ],
+        "description": "页面路由配置"
+    },
+    "页面路由添加非登录逻辑": {
+        "prefix": "kril",
+        "body": [
+            "ignoreLogin: ${1|true,false|},"
+        ],
+        "description": "页面添加非登录逻辑"
+    },
+    "页面路由添加全局配置Meta": {
+        "prefix": "krgc",
+        "body": [
+            "[GlobalConfigRouteMetaEnum.${1|All,Drills,Homework,CompetitionType,DrillCategories|}]: true,"
+        ],
+        "description": "页面路由添加全局配置加载，drill,作业drill, drill 分类 "
+    },
+    "页面路由Props": {
+        "prefix": "krp",
+        "body": [
+            "props: (route) => ({",
+            "...route.query,",
+            "...route.params,",
+            "$1",
+            "}),"
+        ],
+        "description": "页面路由添加 props"
+    },
+    "页面路由Props解析参数": {
+        "prefix": "krpp",
+        "body": [
+            "${1}:  route.query.${1}?${2|JSON.parse(route.query. as string ),Number(route.query.)|}:${3|null,0|}"
+        ],
+        "description": "页面路由添加 props 参数"
+    },
+    "页面路由导航方法": {
+        "prefix": "krnf",
+        "body": [
+            "export function navigateTo${1}(router: VueRouter, ${2}) {",
+            "  router.push({ name: ${1}Route.name, query: { ${2}} })",
+            "}"
+        ],
+        "description": "跳转到路由地址"
+    },
+    "页面路由导航重定向方法": {
+        "prefix": "krrf",
+        "body": [
+            "export function replaceTo${1}(router: VueRouter, ${2}) {",
+            "  router.replace({ name: ${1}Route.name, query: { ${2}} })",
+            "}"
+        ],
+        "description": "替换当前路由地址"
+    },
+    "snake": {
+        "prefix": "snake",
+        "body": "${1/(^[A-Z][a-z]*|[a-z])([A-Z])?/${1:/downcase}${2:+_}${2:/downcase}/g}"
+    },
+    "kebab-base": {
+        "prefix": "kebab",
+        "body": "${1/(^[A-Z][a-z]*|[a-z])([A-Z])?/${1:/downcase}${2:+-}${2:/downcase}/g}   ---- ${2}"
+    }
+}
