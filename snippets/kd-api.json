@@ -1,0 +1,22 @@
+{
+    "kuaidong api class": {
+        "prefix": "kac",
+        "body": [
+            "import { AppUtil } from 'kuaidong-lib'",
+            "export default class ${TM_FILENAME_BASE} {",
+            "${0}",
+            "}"
+        ],
+        "description": "kuaidong api class"
+    },
+    "kuaidong api function": {
+        "scope": "typescript",
+        "prefix": "kaf",
+        "body": [
+            "public static async $1($2): Promise<$3> {",
+            "\tawait AppUtil.${4|httpGET,httpPOST,httpPUT,httpDelete|}('$5', { ${2/([\\w]+)(:\\s?\\w+)(,{0,1})/${1}${3:+,}/g} })",
+            "}"
+        ],
+        "description": "kuaidong api function"
+    }
+}
